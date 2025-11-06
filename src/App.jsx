@@ -40,22 +40,18 @@ function App() {
 
   function handleInitialInvestment(event) {
     setInitialInvestment(event.target.value);
-    console.log("Initial Investment:", event.target.value);
   }
 
   function handleAnnualInvestment(event) {
     setAnnualInvestment(event.target.value);
-    console.log("Annual Investment:", event.target.value);
   }
 
   function handleInvestmentDuration(event) {
     setInvestmentDuration(event.target.value);
-    console.log("Investment Duration:", event.target.value);
   }
 
   function handleExpectedRateOfReturn(event) {
     setExpectedRateOfReturn(event.target.value);
-    console.log("Expected Rate Of Return:", event.target.value);
   }
 
   return (
