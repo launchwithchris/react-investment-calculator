@@ -5,19 +5,31 @@ import InputGroup from "./layouts/InputGroup";
 import Input from "./layouts/Input";
 import Results from "./components/Results";
 import { calculateInvestmentResults } from "./util/investment";
-
-const INITIAL_INVESTMENT = "Initial Investment";
-const ANNUAL_INVESTMENT = "Annual Investment";
-const INVESTMENT_DURATION = "Duration";
-const EXPECTED_RATE_OF_RETURN = "Expected Return";
-
-const NUMBER = "number";
+import {
+  LABEL_INITIAL_INVESTMENT,
+  LABEL_ANNUAL_INVESTMENT,
+  LABEL_INVESTMENT_DURATION,
+  LABEL_EXPECTED_RATE_OF_RETURN,
+  AMOUNT_INITIAL_INVESTMENT,
+  AMOUNT_ANNUAL_INVESTMENT,
+  AMOUNT_INVESTMENT_DURATION,
+  AMOUNT_EXPECTED_RATE_OF_RETURN,
+} from "./constants/investment";
+import { NUMBER } from "./constants/types";
 
 function App() {
-  const [initialInvestment, setInitialInvestment] = useState(0);
-  const [annualInvestment, setAnnualInvestment] = useState(0);
-  const [investmentDuration, setInvestmentDuration] = useState(0);
-  const [expectedRateOfReturn, setExpectedRateOfReturn] = useState(0);
+  const [initialInvestment, setInitialInvestment] = useState(
+    AMOUNT_INITIAL_INVESTMENT
+  );
+  const [annualInvestment, setAnnualInvestment] = useState(
+    AMOUNT_ANNUAL_INVESTMENT
+  );
+  const [investmentDuration, setInvestmentDuration] = useState(
+    AMOUNT_INVESTMENT_DURATION
+  );
+  const [expectedRateOfReturn, setExpectedRateOfReturn] = useState(
+    AMOUNT_EXPECTED_RATE_OF_RETURN
+  );
 
   const data = calculateInvestmentResults({
     initialInvestment: +initialInvestment,
@@ -52,25 +64,25 @@ function App() {
       <InputGroup>
         <Input
           type={NUMBER}
-          label={INITIAL_INVESTMENT}
+          label={LABEL_INITIAL_INVESTMENT}
           value={initialInvestment}
           handleChange={handleInitialInvestment}
         />
         <Input
           type={NUMBER}
-          label={ANNUAL_INVESTMENT}
+          label={LABEL_ANNUAL_INVESTMENT}
           value={annualInvestment}
           handleChange={handleAnnualInvestment}
         />
         <Input
           type={NUMBER}
-          label={INVESTMENT_DURATION}
+          label={LABEL_INVESTMENT_DURATION}
           value={investmentDuration}
           handleChange={handleInvestmentDuration}
         />
         <Input
           type={NUMBER}
-          label={EXPECTED_RATE_OF_RETURN}
+          label={LABEL_EXPECTED_RATE_OF_RETURN}
           value={expectedRateOfReturn}
           handleChange={handleExpectedRateOfReturn}
         />
