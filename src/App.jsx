@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import InputGroup from "./components/InputGroup/InputGroup";
+import InputGroup from "./layouts/InputGroup";
+
 import Input from "./layouts/Input";
+import Results from "./components/Results";
+import { calculateInvestmentResults } from "./util/investment";
 
 const INITIAL_INVESTMENT = "Initial Investment";
 const ANNUAL_INVESTMENT = "Annual Investment";
@@ -15,6 +18,13 @@ function App() {
   const [annualInvestment, setAnnualInvestment] = useState(0);
   const [investmentDuration, setInvestmentDuration] = useState(0);
   const [expectedRateOfReturn, setExpectedRateOfReturn] = useState(0);
+
+  const data = calculateInvestmentResults({
+    initialInvestment: +initialInvestment,
+    annualInvestment: +annualInvestment,
+    expectedReturn: +expectedRateOfReturn,
+    duration: +investmentDuration,
+  });
 
   function handleInitialInvestment(event) {
     setInitialInvestment(event.target.value);
@@ -65,6 +75,7 @@ function App() {
           handleChange={handleExpectedRateOfReturn}
         />
       </InputGroup>
+      <Results data={data} />
     </>
   );
 }
