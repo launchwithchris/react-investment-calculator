@@ -3,10 +3,10 @@ import Header from "./components/Header";
 import InputGroup from "./components/InputGroup/InputGroup";
 import Input from "./layouts/Input";
 
-const INITIAL_INVESTMENT = "Initial Investment Amount";
-const ANNUAL_INVESTMENT = "Annual Investment Amount";
-const INVESTMENT_DURATION = "Investment Duration (years)";
-const EXPECTED_RATE_OF_RETURN = "Expected Rate of Return (%)";
+const INITIAL_INVESTMENT = "Initial Investment";
+const ANNUAL_INVESTMENT = "Annual Investment";
+const INVESTMENT_DURATION = "Duration";
+const EXPECTED_RATE_OF_RETURN = "Expected Return";
 
 const NUMBER = "number";
 
