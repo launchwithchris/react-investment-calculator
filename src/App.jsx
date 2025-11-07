@@ -4,7 +4,6 @@ import InputGroup from "./layouts/InputGroup";
 
 import Input from "./layouts/Input";
 import Results from "./components/Results";
-import { calculateInvestmentResults } from "./util/investment";
 import {
   LABEL_INITIAL_INVESTMENT,
   LABEL_ANNUAL_INVESTMENT,
@@ -14,7 +13,7 @@ import {
   AMOUNT_ANNUAL_INVESTMENT,
   AMOUNT_INVESTMENT_DURATION,
   AMOUNT_EXPECTED_RATE_OF_RETURN,
-} from "./constants/investment";
+} from "./constants/InputGroup";
 import { NUMBER } from "./constants/types";
 
 function App() {
@@ -30,13 +29,6 @@ function App() {
   const [expectedRateOfReturn, setExpectedRateOfReturn] = useState(
     AMOUNT_EXPECTED_RATE_OF_RETURN
   );
-
-  const data = calculateInvestmentResults({
-    initialInvestment: +initialInvestment,
-    annualInvestment: +annualInvestment,
-    expectedReturn: +expectedRateOfReturn,
-    duration: +investmentDuration,
-  });
 
   function handleInitialInvestment(event) {
     setInitialInvestment(event.target.value);
@@ -83,7 +75,12 @@ function App() {
           handleChange={handleExpectedRateOfReturn}
         />
       </InputGroup>
-      <Results data={data} />
+      <Results
+        initialInvestment={initialInvestment}
+        annualInvestment={annualInvestment}
+        investmentDuration={investmentDuration}
+        expectedRateOfReturn={expectedRateOfReturn}
+      />
     </>
   );
 }
