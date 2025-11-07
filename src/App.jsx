@@ -30,6 +30,8 @@ function App() {
     AMOUNT_EXPECTED_RATE_OF_RETURN
   );
 
+  const inputIsValid = investmentDuration > 0 && expectedRateOfReturn > 0;
+
   function handleInitialInvestment(event) {
     setInitialInvestment(event.target.value);
   }
@@ -75,12 +77,20 @@ function App() {
           handleChange={handleExpectedRateOfReturn}
         />
       </InputGroup>
-      <Results
-        initialInvestment={initialInvestment}
-        annualInvestment={annualInvestment}
-        investmentDuration={investmentDuration}
-        expectedRateOfReturn={expectedRateOfReturn}
-      />
+      {inputIsValid && (
+        <Results
+          initialInvestment={initialInvestment}
+          annualInvestment={annualInvestment}
+          investmentDuration={investmentDuration}
+          expectedRateOfReturn={expectedRateOfReturn}
+        />
+      )}
+      {!inputIsValid && (
+        <p className="center error">
+          Please enter valid duration and expected rate of return values
+          (greater than zero).
+        </p>
+      )}
     </>
   );
 }
